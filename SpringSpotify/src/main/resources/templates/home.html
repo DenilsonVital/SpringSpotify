@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+	
+	<link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/css/style.css" rel="stylesheet"/>
+	
+	<title>Página Inicial SpotUnipê</title>
+
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+		<h1>Bem vindo à <b>SpotUnipê</b>: sua playlist on-line coorporativa e gratuita!</h1>
+			<p class="lead">
+				Crie sua playlist e avalie cada música ao seu gosto!
+			</p>
+			
+			<img width="220px" height="220px" th:src="@{/logo.png}"/> 
+		</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+		</div>
+		<div class="col-md-6">
+			<h3>
+				Conheça suas <i>playlists</i>.
+			</h3>
+			<p>
+				Aqui você pode ter acesso às suas <i>playlists</i> de músicas preferidas e ouví-las onde desejar!
+			</p>
+			<p>
+				<a class="btn btn-sucess" href="/playlists/listar"><i>Playslists!</i></a>
+			</p>
+		</div>
+	</div>
+	
+	<hr/>
+	<p>
+	</p>
+	<footer>
+		<p style="text-align:center">&copy; 2019 Programação Avançada para a Web - Rodrigo Fujioka</p>
+	</footer>
+</div>
+</body>
+
+	<!-- <access-denied-handler error-page="/denied.xhtml" /> -->
+</html>

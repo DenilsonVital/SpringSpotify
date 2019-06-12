@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+	
+	<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	
+	<style>
+		.footer {
+		position: absolute;
+    	bottom:0;
+    	width:100%;
+	</style>
+	
+	<title>Listando as músicas...</title>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>SpotUnipê</h1>
+		</div>
+		
+		<div>
+			<a class="btn btn-primary" th:href="@{/playlists/{playlistId}/musicas/cadastro(playlistId=${playlistId})}">Nova música</a>
+		</div>
+		
+		<hr/>
+		<div th:if="${musicas != null}">
+			<h4>Músicas da Playlist selecionada:</h4>
+			
+		<div th:if="${mensagem != null}">
+			<div class="alert alert-info" role="alert">
+				<span th:text="${mensagem == null ? '&nbsp;' : mensagem}">mensagem</span>
+			</div>
+		</div>
+		
+		<table class="table">
+			<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Banda</th>
+				<th>Avaliação</th>
+				<th>Ação</th>
+			</tr>
+			</thead>
+			<tr th:each="musica : ${musicas}"><!-- o atributo th:each vai percorrer percorrer a lista de músicas e preencher a tabela -->
+				<td th:text="${musica.titulo}">Título</td>
+				<td th:text="${musica.banda}">Banda</td>
+				<td th:text="${musica.nota}">Avaliação</td>
+				<td>
+					<a class="btn btn-sm btn-info" th:href="@{/playlists/{playlistId}/musicas/{musicaId}/atualizar(playlistId=${playlistId},musicaId=${musica.id})}">Editar</a>
+					<a class="btn btn-sm btn-danger" th:href="@{/playlists/{playlistId}/musicas/{musicaId}/remover(playlistId=${playlistId},musicaId=${musica.id})}">Excluir</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+	<hr/>
+	<a class="btn btn-light" th:href="@{/playlists/listar}">Voltar às Playlists</a>
+	
+	<hr/>
+	<footer>
+		<p style="text-align:center">&copy; 2019 Programação Avançada para a Web - Rodrigo Fujioka</p>
+	</footer>
+
+</div>
+</body>
+</html>
